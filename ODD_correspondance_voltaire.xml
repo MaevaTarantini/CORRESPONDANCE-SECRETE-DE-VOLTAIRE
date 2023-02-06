@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en"
+   xmlns:s="http://purl.oclc.org/dsdl/schematron">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>
+               Édition TEI de la correspondance de Mr. de Voltaire, par Mr. L.B, manuscrit français imprimé provenant de la Bibliothèque nationale de France
+            </title>
+            <author ref="https://gallica.bnf.fr/ark:/12148/bpt6k63075974/f11.item.r=lettres%20de%20voltaire">François-Marie Arouet dit Voltaire</author>
+            <respStmt>
+               <resp>Transcription et encodage par</resp>
+               <persName>Tarantini Maëva</persName>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Édition encodée, évaluation XML-TEI, Master 2 TNAH, École nationale des chartes.</publisher>
+            <pubPlace>Paris</pubPlace>
+            <date when="2023-02">Février 2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <p>La transcription a été réalisée à partir de la numérisation de l'ouvrage imprimé disponible
+               sur Gallica : <graphic url="https://gallica.bnf.fr/ark:/12148/bpt6k63075974/f11.item.r=lettres%20de%20voltaire"/></p>
+            <p>Schéma créé avec Oddbyexample</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         
+         <div1> 
+   
+               <head>
+             Guide de l'encodage de la correspondance secrète de Mr. de Voltaire, publiée entre 1735 et 1736.
+            </head>
+         
+         <p>
+            Le présent encodage concerne la correspondance secrète de Voltaire, durant la période 1735-1736.
+            Si nous devions recontextualiser cette période, nous pourrions la définir comme celle du foisonnement 
+            littéraire et politique français. Le XVIIIe siècle français et notamment le règne de Louis XV, voit l'émergence de 
+            nombreux cercles d'intellectuels qui ont plusieurs objectifs : l'échange culturel (entre différents pays européens 
+            souvent en guerre), par l'échange d'ouvrage, la correspondance (permettant d'échanger des points de vue et d'entretenir des amitiés), 
+            le parrainage (propulser des écrivains sur le devant de la scène littéraire).
+         </p>
+            
+            <p>
+              Ces correspondances sont l'occasion de voir quelles relations entretiennent les différents protagnistes que nous connaissons. Voltaire, dans 
+              cette correspondance, fait part de son amitié et de son attachement puissant envers son ami, qui est le destinataire de l'intégralité des lettres 
+              présentement encodées. Elles sont adressées à Mr. Berger. Nous avons peu d'informations sur cet auteur, qui pourrait être un ami Genevois. 
+              Dans cette correspondance, il est fait mention de plusieurs individus : dont des rivaux (ennemis de Voltaire), des musiciens (qui sont l'un des moteurs de 
+              promotion des auteurs tels que Voltaire) et des hommes politiques faisant souvent l'objet de critique ou évoqués avec ironie.
+            </p>
+            
+            <p>
+              Cet ouvrage est un support imprimé, il a donc été strictement encodé pour respecter la structure générale du texte imprimé : retours à la ligne, 
+              sauts de ligne, coupures entre les pages, présence d'illustrations ou de décors. J'ai également trouvé approprié de signifier la présence d'éléments manuscrits : 
+              des écritures rajoutées à la main qui ne sont vraisemblablement pas contemporaines de la publication des lettres secrètes de Voltaire. L'encodage met davantage l'accent 
+              sur le contenu, que sur les choix visuels ou de mise en page qui ont été effectués.
+            </p>
+            
+            <p>
+               En effet, l'objectif est avant tout de distinguer quels sont les différents sujets de conversation des hommes de lettres du XVIIIe siècle et de retracer une ligne directrice 
+               quant à leurs relations et les intérêts personnels qui sont en jeu dans ces correspondances. 
+            </p>
+         
+         
+         <div2>
+            <head>
+               Structure de mon fichier XML 
+            </head>
+            
+            <p>Le document XML est contenu dans un élément racine <gi>TEI</gi>, divisé en plusieurs parties :
+               <specList>
+                  <specDesc key="teiHeader"/>
+                  <specDesc key="correspDesc"/>
+                  <specDesc key="correspAction"/>
+                  <specDesc key="text"/>                 
+                  <specDesc key="letter"/>
+                  <specDesc key="figDesc"/>
+               </specList>
+            </p>
+         
+         <p>
+            Le <gi>teiHeader</gi> contient toutes les métadonnées relatives à la source encodée : 
+            auteur, date de publication, lieu de publication...
+            Le <gi>correspDesc</gi> complété par le <gi>correspAction</gi> rappelle qui sont les deux protagnistes concernés par 
+            cette correspondance : expéditeur, destinataire, année d'envoi... 
+            La balise <gi>text</gi>, est le contenu même du texte de la lettre, retranscrite.
+            La balise <gi>letter</gi> permet de diviser le contenu de chacune des lettres. Je voulais que les lettres soient bien différenciables et 
+            distinguées les unes des autres, à l'image des lettres rassemblées dans cet ouvrage, qui sont semblables à des chapitres et bien
+            identifiables par le lecteur. (Lettre première, Lettre II, Lettre III et ainsi de suite...)
+            La balise <gi>figDesc</gi> est utile pour distinguer la présence d'illustrations ou de décors. Elle est essentielle pour indiquer la fin d'une lettre
+            et le démarrage d'une nouvelle lettre. Elle est aussi un élément propre des imprimés des XVIIe et XVIIIe siècles.
+         </p>
+         
+           <div3>
+               <head>La structure du <gi>teiHeader</gi> et du <gi>fileDesc</gi></head>
+               <p>Le <gi>teiHeader</gi> est divisé en deux parties :
+                  <specList>
+                     <specDesc key="fileDesc"/>
+                     <specDesc key="profileDesc"/>
+                  </specList>
+               </p>
+               <p>L'élément <gi>fileDesc</gi> contient toutes les informations de description du document et du texte. 
+                  L'élément <gi>profileDesc</gi> contient les éléments contenus dans le texte en lui-même.</p>
+               <p>
+                  L'élément <gi>fileDesc</gi> se compose de toutes les métadonnées utiles à la compréhension d'un lecteur :
+                  la provenance, le titre...
+              <specList>
+                 <specDesc key="titleStmt"/>
+                 <specDesc key="editionStmt"/>
+                 <specDesc key="publicationStmt"/>
+                 <specDesc key="sourceDesc"/>
+              </specList>
+                  </p>
+           
+           <div4>
+              
+              <head>
+                 La structure du texte
+              </head>
+              
+              <p>
+              Le texte encodé a été structuré de sorte à reproduire la source imprimée. Les parties textuelles
+              ont donc été encodées avec l'aide de la balise line break.
+                 L'usage constant de la balise line break : cette balise est généralement utilisée dans les
+                  textes pour marquer les retours à la ligne qui ne sont pas causés par la fin d'un
+                  paragraphe, mais plutôt par la mise en page originale du document.
+                  Elle est souvent utilisée dans les documents numérisés où la mise en page originale a été
+                   préservée, afin de refléter l'apparence du document original. 
+                  </p>
+                  
+              <p>
+                 De plus, chaque morceau de texte correspondant à une lettre a été séparé de sorte à distinguer une 
+                 lettre de la suivante. 
+              </p>      
+              
+              <div5>
+                 
+                  <head>
+                     Structure des pages de l'imprimé
+                  </head>
+                 
+                 <p>
+                    Les changements de page sont indiqués par la balise :  <pb n="2" /> 
+                    ces balises permettent de signifier un changement de page et donc une coupure dans 
+                    un texte.
+                    <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                         Je savais bien qu'il était<lb />
+                    tout aimable; mais je ne savais pas qu'il<lb />
+                    <pb n="10" />
+                    </egXML>
+                 
+                 </p>
+              
+              <div6>
+                 <head>
+                Les lettrines et caractères spéciaux
+                 </head>
+                 
+                 <p>
+                   Les lettrines sont placées entre les balises <g></g>, elles ne sont pas systématiques mais 
+                   toujours placées en début de lettre. 
+                    <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                    <g>V</g>ous me mandés
+                    </egXML>
+                 </p>
+                   
+                   <p>
+                    <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                      je ne mérite point les reproches d'insensibilité &amp; d'avarice
+                    </egXML>
+                   L'esperluette a été codée de sorte à apparaître dans le fichier encodé : &amp;
+                 </p>
+             
+             <div7>
+                <head>
+                   L'encodage sémantique et les ref type
+                </head>
+                
+                <p>
+                  L'étude d'une correspondance nous permet de former une analyse sémantique ou une réccurence des termes
+                  employés dans une même correspondance. Les noms propres sont encodés dans la balise 
+                  <gi>persName</gi>. 
+                  Les termes relatifs aux professions ou aux genres des oeuvres littéraires sont placés entre 
+                  balises avec un attribut ref type. 
+                   <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                      Mandés-moi donc si le grand <ref type="profession">musicien</ref>
+                   </egXML>
+                   
+                   Les genres des oeuvres littéraires sont également décrits avec un attribut, de la même manière :
+                   <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                   Voudriés-vous me faire l'amitié de<lb /> me mander quand on fera<ref
+                      type="oraisonfunebre">l'oraison fu-<lb />nebre</ref>
+                   </egXML>
+                </p>
+                
+          
+             <!-- Les autres éléments de mon encodage-->
+     
+         <schemaSpec ident="oddbyexample" start="TEI ">
+            <moduleRef key="tei"/>
+            <!--Checking module textcrit-->
+            <classRef key="att.textCritical"/>
+            <classRef key="model.rdgLike"/>
+            <classRef key="model.rdgPart"/>
+            <classSpec ident="att.textCritical" type="atts" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="cause" mode="delete"/>
+                  <attDef ident="varSeq" mode="delete"/>
+                  <attDef ident="require" mode="delete"/>
+               </attList>
+            </classSpec>
+            <!--Checking module msdescription-->
+            <classRef key="model.physDescPart"/>
+            <!--Checking module namesdates-->
+            <classRef key="model.persNamePart"/>
+            <moduleRef key="namesdates" include="persName placeName"/>
+            <elementSpec ident="persName" mode="change">
+               <attList>
+                  <attDef ident="when" mode="delete"/>
+                  <attDef ident="full" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="yes"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+        
+            <elementSpec ident="placeName" mode="change">
+               <attList>
+                  <attDef ident="when" mode="delete"/>
+                  <attDef ident="full" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="yes"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="ref" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <!--Checking module dictionaries-->
+            <classRef key="att.lexicographic"/>
+            <classRef key="model.entryLike"/>
+            <classRef key="model.formPart"/>
+            <classRef key="model.gramPart"/>
+            <classRef key="model.lexicalRefinement"/>
+            <classRef key="model.morphLike"/>
+            <classRef key="model.ptrLike.form"/>
+            <classSpec ident="att.lexicographic" type="atts" mode="change">
+               <attList>
+                  <attDef ident="expand" mode="delete"/>
+                  <attDef ident="split" mode="delete"/>
+                  <attDef ident="value" mode="delete"/>
+                  <attDef ident="location" mode="delete"/>
+                  <attDef ident="mergedIn" mode="delete"/>
+                  <attDef ident="opt" mode="delete"/>
+               </attList>
+            </classSpec>
+            <!--Checking module tagdocs-->
+            <classRef key="att.combinable"/>
+            <classRef key="att.identified"/>
+            <classRef key="model.contentPart"/>
+            <moduleRef key="tagdocs"
+                       include="classRef moduleRef schemaSpec elementSpec classSpec attList attDef valItem valList"/>
+            <elementSpec ident="classRef" mode="change">
+               <attList>
+                  <attDef ident="expand" mode="delete"/>
+                  <attDef ident="include" mode="delete"/>
+                  <attDef ident="except" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="moduleRef" mode="change">
+               <attList>
+                  <attDef ident="prefix" mode="delete"/>
+                  <attDef ident="except" mode="delete"/>
+                  <attDef ident="url" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="schemaSpec" mode="change">
+               <attList>
+                  <attDef ident="prefix" mode="delete"/>
+                  <attDef ident="targetLang" mode="delete"/>
+                  <attDef ident="docLang" mode="delete"/>
+                  <attDef ident="defaultExceptions" mode="delete"/>
+                  <attDef ident="mode" mode="delete"/>
+                  <attDef ident="status" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="elementSpec" mode="change">
+               <attList>
+                  <attDef ident="prefix" mode="delete"/>
+                  <attDef ident="mode" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="change"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="classSpec" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="atts"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="generate" mode="delete"/>
+                  <attDef ident="mode" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="change"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="atts"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="attList" mode="change">
+               <attList>
+                  <attDef ident="org" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="attDef" mode="change">
+               <attList>
+                  <attDef ident="usage" mode="delete"/>
+                  <attDef ident="ns" mode="delete"/>
+                  <attDef ident="mode" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="change"/>
+                        <valItem ident="delete"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="valItem" mode="change">
+               <attList>
+                  <attDef ident="mode" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="valList" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="closed"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="mode" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="add"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <classSpec ident="att.identified" type="atts" mode="change">
+               <attList>
+                  <attDef ident="predeclare" mode="delete"/>
+                  <attDef ident="module" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.anchoring" type="atts" mode="change">
+               <attList>
+                  <attDef ident="targetEnd" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.ascribed.directed" type="atts" mode="change">
+               <attList>
+                  <attDef ident="toWhom" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.canonical" type="atts" mode="change">
+               <attList>
+                  <attDef ident="key" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.dimensions" type="atts" mode="change">
+               <attList>
+                  <attDef ident="unit" mode="delete"/>
+                  <attDef ident="quantity" mode="delete"/>
+                  <attDef ident="extent" mode="delete"/>
+                  <attDef ident="precision" mode="delete"/>
+                  <attDef ident="scope" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.damaged" type="atts" mode="change">
+               <attList>
+                  <attDef ident="agent" mode="delete"/>
+                  <attDef ident="degree" mode="delete"/>
+                  <attDef ident="group" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.datable.w3c" type="atts" mode="change">
+               <attList>
+                  <attDef ident="notBefore" mode="delete"/>
+                  <attDef ident="notAfter" mode="delete"/>
+                  <attDef ident="from" mode="delete"/>
+                  <attDef ident="to" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.datable" type="atts" mode="change">
+               <attList>
+                  <attDef ident="calendar" mode="delete"/>
+                  <attDef ident="period" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.editLike" type="atts" mode="change">
+               <attList>
+                  <attDef ident="evidence" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.media" type="atts" mode="change">
+               <attList>
+                  <attDef ident="width" mode="delete"/>
+                  <attDef ident="height" mode="delete"/>
+                  <attDef ident="scale" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.naming" type="atts" mode="change">
+               <attList>
+                  <attDef ident="role" mode="delete"/>
+                  <attDef ident="nymRef" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.typed" type="atts" mode="change">
+               <attList>
+                  <attDef ident="subtype" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.pointing" type="atts" mode="change">
+               <attList>
+                  <attDef ident="targetLang" mode="delete"/>
+                  <attDef ident="evaluate" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.pointing.group" type="atts" mode="change">
+               <attList>
+                  <attDef ident="domains" mode="delete"/>
+                  <attDef ident="targFunc" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.segLike" type="atts" mode="change">
+               <attList>
+                  <attDef ident="function" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.timed" type="atts" mode="change">
+               <attList>
+                  <attDef ident="start" mode="delete"/>
+                  <attDef ident="end" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.transcriptional" type="atts" mode="change">
+               <attList>
+                  <attDef ident="cause" mode="delete"/>
+                  <attDef ident="seq" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.personal" type="atts" mode="change">
+               <attList>
+                  <attDef ident="sort" mode="delete"/>
+               </attList>
+            </classSpec>
+            <!--Checking module core-->
+            <moduleRef key="core"
+                       include="p foreign hi q term add address addrLine date ref head note pb lb analytic monogr author title imprint publisher citedRange pubPlace bibl biblStruct"/>
+            <elementSpec ident="p" mode="change">
+               <attList>
+                  <attDef ident="part" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="N"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="q" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="poesie"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="term" mode="change">
+               <attList>
+                  <attDef ident="target" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="cantate"/>
+                        <valItem ident="genre"/>
+                        <valItem ident="poeme"/>
+                        <valItem ident="profession"/>
+                        <valItem ident="theatre"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="ref" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="add" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="hand"/>
+                        <valItem ident="postscript"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="date" mode="change">
+               <attList>
+                  <attDef ident="ref" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="ref" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="oraisonfunebre"/>
+                        <valItem ident="profession"/>
+                        <valItem ident="éloge"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="head" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="subtitle"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="note" mode="change">
+               <attList>
+                  <attDef ident="target" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="bibliography"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="pb" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="lb" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="author" mode="change">
+               <attList>
+                  <attDef ident="ref" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="title" mode="change">
+               <attList>
+                  <attDef ident="level" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="short"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="short"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="ref" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="publisher" mode="change">
+               <attList>
+                  <attDef ident="ref" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="citedRange" mode="change">
+               <attList>
+                  <attDef ident="target" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="pubPlace" mode="change">
+               <attList>
+                  <attDef ident="ref" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="bibl" mode="change">
+               <attList>
+                  <attDef ident="default" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="false"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="biblStruct" mode="change">
+               <attList>
+                  <attDef ident="default" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="false"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <!--Checking module figures-->
+            <moduleRef key="figures" include="figure figDesc"/>
+            <elementSpec ident="figure" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="illustration"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <!--Checking module header-->
+            <moduleRef key="header"
+                       include="teiHeader fileDesc titleStmt publicationStmt idno sourceDesc profileDesc correspDesc correspAction"/>
+            <elementSpec ident="idno" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="page"/>
+                        <valItem ident="volume"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="when" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="page"/>
+                        <valItem ident="volume"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="sourceDesc" mode="change">
+               <attList>
+                  <attDef ident="default" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="false"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="correspDesc" mode="change">
+               <attList>
+                  <attDef ident="default" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="false"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="ref" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="correspAction" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="received"/>
+                        <valItem ident="sent"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="received"/>
+                        <valItem ident="sent"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <!--Checking module gaiji-->
+            <elementSpec ident="g" mode="change">
+               <attList>
+                  <attDef ident="ref" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <!--Checking module verse-->
+            <!--Checking module transcr-->
+            <!--Checking module linking-->
+            <!--Checking module analysis-->
+            <classRef key="att.linguistic"/>
+            <classSpec ident="att.linguistic" type="atts" mode="change">
+               <attList>
+                  <attDef ident="lemma" mode="delete"/>
+                  <attDef ident="lemmaRef" mode="delete"/>
+                  <attDef ident="pos" mode="delete"/>
+                  <attDef ident="msd" mode="delete"/>
+                  <attDef ident="join" mode="delete"/>
+               </attList>
+            </classSpec>
+            <!--Checking module textstructure-->
+            <moduleRef key="textstructure" include="TEI text body div opener closer front"/>
+            <elementSpec ident="TEI" mode="change">
+               <attList>
+                  <attDef ident="version" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="text" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="div" mode="change">
+               <attList>
+                  <attDef ident="org" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="uniform"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="sample" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="complete"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="part" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="N"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="letter"/>
+                        <valItem ident="lettre"/>
+                     </valList>
+                  </attDef>
+               </attList>
+               
+      
+            </elementSpec>
+            <!-- Cette règle contraint l'utilisation de l'usage de certains éléments : 
+            ici les noms et genre des individus. -->
+            
+            <elementSpec ident="person">
+               <content>
+                  <elementRef key="name"/>
+                  <elementRef key="gender"/>
+               </content>
+           
+            </elementSpec>
+     
+            <!-- Un exemple de règle fonctionnelle dans une ODD pour une correspondance 
+               cette règle permet de contraindre la vérification d'une date, ici 1736.
+             Cette règle spécifie que la valeur de l'attribut "date" doit correspondre à une année valide pour l'élément "letter".
+             Il utilise la fonction "year-from-date" pour extraire l'année de la date, ensuite
+             il utilise les fonctions "gte" (greater than or equal) et "lt" (less than) pour vérifier 
+             que la valeur de l'année extraite de la date de l'attribut "date" est supérieure ou égale à 1736 
+             et inférieure à l'année courante.-->
+            
+            <elementSpec ident="letter">
+               <attList>
+                  <attDef ident="date" mode="change">
+                     <constraintSpec scheme="schematron" ident="letter">
+                        <valueConstraint>
+                           <test>
+                              <and>
+                                 <gte>
+                                    <year-from-date>
+                                       <var>date</var>
+                                    </year-from-date>
+                                    <value>1736</value>
+                                 </gte>
+                                 <lt>
+                                    <year-from-date>
+                                       <var>date</var>
+                                    </year-from-date>
+                                    <current-year/>
+                                 </lt>
+                              </and>
+                           </test>
+                        </valueConstraint>
+                     </constraintSpec>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            
+            <!--Une règle contraignant la valeur d’un attribut ou l’usage 
+               d’un élément ou d’un attribut en fonction de son environnement -->
+            
+            <elementSpec ident="persName">
+               <attList>
+                  <attDef ident="persName" mode="change">
+                     <constraintSpec scheme="schematron" ident="persName">
+                        <constraint>
+                        </constraint>
+                     </constraintSpec>
+                  </attDef>
+               </attList>
+            </elementSpec>
+     
+         </schemaSpec>
+                
+             </div1>
+             
+      </body>
+   </text>
+</TEI>
